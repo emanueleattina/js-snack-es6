@@ -1,7 +1,17 @@
 .azzurro i {
-    color: lightblue;
+    margin-right: 10px;
+    color: #5a96aa;
 }
 
 .rosa i {
-    color: pink;
+    margin-right: 10px;
+    color: #df7c8d;
+}
+
+.list-none {
+    list-style: none;
+}
+
+#milestoneDue {
+    padding-inline-start: 20px;
 }
