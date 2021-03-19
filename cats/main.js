@@ -6,41 +6,43 @@
 const gatti = [
     {
         nome: 'Gervasio',
-        eta: 12,
+        eta: numRandom(1, 20),
         colore: 'viola',
         sesso: 'maschio'
     },
     {
         nome: 'Duchessa',
-        eta: 9,
+        eta: numRandom(1, 20),
         colore: 'bianco',
         sesso: 'femmina'
     },
     {
         nome: 'Oliver',
-        eta: 11,
+        eta: numRandom(1, 20),
         colore: 'arancione',
         sesso: 'maschio'
     },
     {
         nome: 'Edgar',
-        eta: 8,
+        eta: numRandom(1, 20),
         colore: 'marrone',
         sesso: 'maschio'
     },
     {
         nome: 'Pasquale',
-        eta: 5,
+        eta: numRandom(1, 20),
         colore: 'verde',
         sesso: 'maschio'
     },
     {
         nome: 'Virgola',
-        eta: 19,
+        eta: numRandom(1, 20),
         colore: 'blu',
         sesso: 'femmina'
     }
 ];
+
+console.log(gatti);
 
 gatti.forEach((element) => {
     $('#milestoneUno').append(`<li>${element.nome} è di colore ${element.colore}</li>`)
@@ -67,7 +69,9 @@ console.log(etaMax);
 
 gatti.forEach((element) => {
     let nastro;
-    let perc = (element.eta * etaMax) / 10000;
+    let perc = (element.eta * 1) / etaMax;
+
+    console.log(perc);
 
     if (element.sesso == 'maschio') {
         nastro = 'azzurro';
@@ -75,5 +79,10 @@ gatti.forEach((element) => {
     else if (element.sesso == 'femmina') {
         nastro = 'rosa';
     }
-    $('#milestoneDue').append(`<li class="${nastro} list-none"><i class="fas fa-ribbon"></i>${element.nome} è di colore ${element.colore}</li>`)
+    $('#milestoneDue').append(`<li class="${nastro} list-none"><i class="fas fa-ribbon" style="opacity: ${perc}"></i>${element.nome} è di colore ${element.colore} con ${element.eta} anni</li>`);
 });
+
+function numRandom(min, max) {
+    var numRandom = Math.floor((Math.random() * max) + min);
+    return numRandom;
+}
