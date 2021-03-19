@@ -42,7 +42,15 @@ const gatti = [
     }
 ];
 
-console.log(gatti);
+let etaMax = gatti[0];
+
+for(let i = 0; i < gatti.length; i++) {
+    if(gatti[i].eta > etaMax.eta) {
+        etaMax = gatti[i];
+    }
+}
+
+console.log("Età massima: " + etaMax.eta);
 
 gatti.forEach((element) => {
     $('#milestoneUno').append(`<li>${element.nome} è di colore ${element.colore}</li>`)
@@ -57,21 +65,11 @@ gatti.forEach((element) => {
 const gattiMaschio = gatti.filter((element) => element.sesso == 'maschio');
 const gattiFemmina = gatti.filter((element) => element.sesso == 'femmina');
 
-console.log(gattiMaschio);
 
-let etaMax = gatti[0];
-
-for(let i = 0; i < gatti.length; i++) {
-    if(gatti[i].eta > etaMax.eta) {
-        etaMax = gatti[i].eta;
-    }
-}
-
-console.log(etaMax);
 
 gatti.forEach((element) => {
     let nastro;
-    let perc = (element.eta * 1) / etaMax;
+    let perc = ((element.eta * 100) / etaMax.eta) / 100;
 
     console.log(perc);
 
@@ -98,7 +96,7 @@ console.log(arrGattiOrdinati);
 
 arrGattiOrdinati.forEach((element) => {
     let nastro;
-    let perc = (element.eta * 1) / etaMax;
+    let perc = ((element.eta * 100) / etaMax.eta) / 100;
 
     console.log(perc);
 
