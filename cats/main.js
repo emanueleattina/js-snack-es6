@@ -57,6 +57,8 @@ gatti.forEach((element) => {
 const gattiMaschio = gatti.filter((element) => element.sesso == 'maschio');
 const gattiFemmina = gatti.filter((element) => element.sesso == 'femmina');
 
+console.log(gattiMaschio);
+
 let etaMax = gatti[0];
 
 for(let i = 0; i < gatti.length; i++) {
@@ -86,3 +88,25 @@ function numRandom(min, max) {
     var numRandom = Math.floor((Math.random() * max) + min);
     return numRandom;
 }
+
+// milestone 3
+// crea un nuovo array con prima tutti i gattini femmina e poi tutti i gattini maschio
+// inserendo solo nome e colore e opacità del fiocco per ogni gatto
+
+const arrGattiOrdinati = [...gattiFemmina, ...gattiMaschio];
+console.log(arrGattiOrdinati);
+
+arrGattiOrdinati.forEach((element) => {
+    let nastro;
+    let perc = (element.eta * 1) / etaMax;
+
+    console.log(perc);
+
+    if (element.sesso == 'maschio') {
+        nastro = 'azzurro';
+    }
+    else if (element.sesso == 'femmina') {
+        nastro = 'rosa';
+    }
+    $('#milestoneTre').append(`<li class="${nastro} list-none"><i class="fas fa-ribbon" style="opacity: ${perc}"></i>${element.nome} è di colore ${element.colore} con ${element.eta} anni</li>`);
+});

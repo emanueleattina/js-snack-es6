@@ -12,6 +12,6 @@
     list-style: none;
 }
 
-#milestoneDue {
+#milestoneDue, #milestoneTre {
     padding-inline-start: 20px;
 }
